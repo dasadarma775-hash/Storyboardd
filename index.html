@@ -6,6 +6,9 @@
 <title>Storyboard & Voice Over</title>
 <meta name="theme-color" content="#4B3FD6">
 <meta name="mobile-web-app-capable" content="yes">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
 <style>
 :root{--bg:#EEF1F5;--panel:#FFFFFF;--ink:#1B2433;--mute:#5B6678;--line:#CBD3DE;--acc:#4B3FD6;--onacc:#FFFFFF;--hl:#F2B632;--frame:#1B2433;--onframe:#F2B632;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
@@ -245,6 +248,7 @@ $("gen").addEventListener("click",build);
 $("cvo").addEventListener("click",function(){copy(voText(),"Voice over disalin")});
 $("cst").addEventListener("click",function(){copy(sbText(),"Storyboard disalin")});
 try{var d=JSON.parse(localStorage.getItem("sb_draft")||"null");if(d){$("judul").value=d.j||"";$("naskah").value=d.n||""}}catch(e){}
+if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}
 </script>
 </body>
 </html>
